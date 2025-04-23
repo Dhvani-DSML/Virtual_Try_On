@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlamFit - Virtual Try-On Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff3366;
+            --secondary-color: #2c3e50;
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .category-card {
+            border: none;
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .how-it-works-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .product-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 10px 30px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e62958;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">GlamFit</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How It Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Try Before You Buy</h1>
+            <p class="lead mb-4">Experience the future of shopping with our virtual try-on technology</p>
+            <a href="#try-on" class="btn btn-primary btn-lg">Try Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5" id="categories">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Categories</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card category-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses1.png') }}" class="card-img-top" alt="Designer Sunglasses">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Designer Sunglasses</h5>
+                            <p class="card-text">Premium fashion eyewear</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card category-card">
+                        <img src="{{ url_for('static', filename='accessories/hats/hat1.png') }}" class="card-img-top" alt="Stylish Hats">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Stylish Hats</h5>
+                            <p class="card-text">Trendy headwear collection</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card category-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses3.png') }}" class="card-img-top" alt="Classic Sunglasses">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Classic Sunglasses</h5>
+                            <p class="card-text">Timeless styles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5 bg-light" id="how-it-works">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-camera how-it-works-icon"></i>
+                    <h4>Take a Selfie</h4>
+                    <p>Upload your photo or take a quick selfie</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-magic how-it-works-icon"></i>
+                    <h4>Choose Products</h4>
+                    <p>Select from our wide range of products</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-check-circle how-it-works-icon"></i>
+                    <h4>See the Results</h4>
+                    <p>Instantly see how products look on you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try On Section -->
+    <section class="py-5" id="try-on">
+        <div class="container">
+            <h2 class="text-center mb-5">Virtual Try-On</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form action="/upload" method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label class="form-label">Upload your photo:</label>
+                                    <input type="file" class="form-control" name="image" accept="image/*" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Select an accessory:</label>
+                                    <select class="form-select" name="accessory" id="accessorySelect">
+                                        <optgroup label="Sunglasses">
+                                            <option value="sunglasses1">Round Metal Sunglasses</option>
+                                            <option value="sunglasses2">Aviator Sunglasses</option>
+                                            <option value="sunglasses3">Wayfarer Sunglasses</option>
+                                            <option value="sunglasses4">Cat Eye Sunglasses</option>
+                                            <option value="sunglasses5">Oval Sunglasses</option>
+                                        </optgroup>
+                                        <optgroup label="Hats">
+                                            <option value="hat1">Classic Fedora</option>
+                                            <option value="hat2">Summer Straw Hat</option>
+                                            <option value="hat3">Vintage Beret</option>
+                                            <option value="hat4">Panama Hat</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Try On Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="py-5 bg-light" id="products">
+        <div class="container">
+            <h2 class="text-center mb-5">Popular Products</h2>
+            <!-- Sunglasses Row -->
+            <h4 class="mb-4">Sunglasses</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses1.png') }}" class="card-img-top" alt="Round Metal Sunglasses">
+                        <div class="card-body">
+                            <h5 class="card-title">Round Metal Sunglasses</h5>
+                            <p class="card-text">$149.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('sunglasses1')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses2.png') }}" class="card-img-top" alt="Aviator Sunglasses">
+                        <div class="card-body">
+                            <h5 class="card-title">Aviator Sunglasses</h5>
+                            <p class="card-text">$169.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('sunglasses2')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses3.png') }}" class="card-img-top" alt="Wayfarer Sunglasses">
+                        <div class="card-body">
+                            <h5 class="card-title">Wayfarer Sunglasses</h5>
+                            <p class="card-text">$129.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('sunglasses3')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/sunglasses/sunglasses4.png') }}" class="card-img-top" alt="Cat Eye Sunglasses">
+                        <div class="card-body">
+                            <h5 class="card-title">Cat Eye Sunglasses</h5>
+                            <p class="card-text">$139.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('sunglasses4')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hats Row -->
+            <h4 class="mb-4 mt-5">Hats</h4>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/hats/hat1.png') }}" class="card-img-top" alt="Classic Fedora">
+                        <div class="card-body">
+                            <h5 class="card-title">Classic Fedora</h5>
+                            <p class="card-text">$79.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('hat1')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/hats/hat2.png') }}" class="card-img-top" alt="Summer Straw Hat">
+                        <div class="card-body">
+                            <h5 class="card-title">Summer Straw Hat</h5>
+                            <p class="card-text">$59.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('hat2')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/hats/hat3.png') }}" class="card-img-top" alt="Vintage Beret">
+                        <div class="card-body">
+                            <h5 class="card-title">Vintage Beret</h5>
+                            <p class="card-text">$49.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('hat3')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card product-card">
+                        <img src="{{ url_for('static', filename='accessories/hats/hat4.png') }}" class="card-img-top" alt="Panama Hat">
+                        <div class="card-body">
+                            <h5 class="card-title">Panama Hat</h5>
+                            <p class="card-text">$89.99</p>
+                            <button class="btn btn-primary w-100" onclick="selectAccessory('hat4')">Try On</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About GlamFit</h5>
+                    <p>Experience the future of shopping with our state-of-the-art virtual try-on technology.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="text-center">
+                <p>&copy; 2024 GlamFit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function selectAccessory(accessoryId) {
+            document.getElementById('accessorySelect').value = accessoryId;
+            document.querySelector('#try-on').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+
